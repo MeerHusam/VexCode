@@ -5,6 +5,7 @@
 using namespace pros;
 
 #define DIGITAL_SENSOR_PORT 'B'
+#define TOGGLE_AUTON 'A'
 
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 pros::Motor leftDriveMotor1(18); 
@@ -15,11 +16,12 @@ pros::Motor rightDriveMotor2(9);
 pros::Motor rightDriveMotor3(10);
 pros::Motor intake(5);
 pros::ADIDigitalOut piston (DIGITAL_SENSOR_PORT);
+pros::ADIDigitalIn auton (TOGGLE_AUTON);
 
 void initialize() {
-    leftDriveMotor1.set_reversed(true);
-    leftDriveMotor2.set_reversed(true);
-    leftDriveMotor3.set_reversed(true);
+    rightDriveMotor1.set_reversed(true);
+    rightDriveMotor2.set_reversed(true);
+    rightDriveMotor3.set_reversed(true);
 
     intake.set_reversed(true);
 }
@@ -33,12 +35,22 @@ void competition_initialize() {
 }
 
 void autonomous() {
-    // Autonomous code
+    // leftDriveMotor1.move();
+    // leftDriveMotor2.move();
+    // leftDriveMotor3.move(leftMotorSpeed);
+    // rightDriveMotor1.move(rightMotorSpeed);
+    // rightDriveMotor2.move(rightMotorSpeed);
+    // rightDriveMotor3.move(rightMotorSpeed);
 }
 
 void opcontrol() {
     bool pistonOn = false;
     while (true) {
+        // Toggle autonomous mode
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+            pros::delay(500);
+            autonomous();
+        }
         // Retrieve joystick values from the controller
         int forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
         int turn = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_X);

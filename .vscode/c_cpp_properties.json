@@ -4,7 +4,8 @@
       "name": "PROS Project",
       "includePath": [
         "${workspaceFolder}/**",
-        "/Users/meerhusamuddin/Studies/PSU/Vex Robotics/Code/vexFirstTest/src/include"
+        "/Users/meerhusamuddin/Studies/PSU/Vex Robotics/Code/vexFirstTest/src/include",
+        "/Users/meerhusamuddin/Studies/PSU/Term241/Vex_Robotics/Vex_Code_v1/include"
       ],
       "defines": [
         "_DEBUG",
@@ -20,7 +21,7 @@
       ],
       "browse": {
         "path": [
-          "/Users/meerhusamuddin/Studies/PSU/Vex Robotics/Code/vexFirstTest/src"
+          "/Users/meerhusamuddin/Studies/PSU/Term241/Vex_Robotics/Vex_Code_v1"
         ],
         "limitSymbolsToIncludedHeaders": true,
         "databaseFilename": ""
